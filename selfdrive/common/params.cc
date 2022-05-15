@@ -162,6 +162,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"Passive", PERSISTENT},
     {"PrimeRedirected", PERSISTENT},
     {"PrimeType", PERSISTENT},
+    {"QuietDrive", PERSISTENT},
     {"RecordFront", PERSISTENT},
     {"RecordFrontLock", PERSISTENT},  // for the internal fleet
     {"ReleaseNotes", PERSISTENT},
