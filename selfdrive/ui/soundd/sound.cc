@@ -6,6 +6,7 @@
 #include <QAudioDeviceInfo>
 #include <QDebug>
 
+#include "selfdrive/common/params.h"
 #include "cereal/messaging/messaging.h"
 #include "selfdrive/common/util.h"
 
@@ -72,10 +73,16 @@ void Sound::setAlert(const Alert &alert) {
     }
 
     // play sound
-    if (alert.sound != AudibleAlert::NONE) {
+  if (shouldPlaySound(a)) {
       auto &[s, loops] = sounds[alert.sound];
       s->setLoopCount(loops);
       s->play();
     }
   }
 }
+
+bool shouldPlaySound(Alert a) {
+     bool isQuietDrive = Params().getBool("QuietDrive");
+     return (a.sound == AudibleAlert::CHIME_WARNING2_REPEAT || a.sound == AudibleAlert::CHIME_WARNING_REPEAT) ||
+       (!isQuietDrive && a.sound != AudibleAlert::NONE);
+   }
