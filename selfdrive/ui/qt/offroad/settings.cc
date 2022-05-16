@@ -102,8 +102,15 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
                                   "When enabled, jvePilot will disengage jvePilot when the gas pedal is pressed.",
                                   "../assets/jvepilot/settings/icon_gas_pedal.png",
                                   this));
+  
+  // QuietDrive
+  addItem(new ParamControl("QuietDrive",
+                                   "Quiet Drive",
+                                   "In this mode openpilot will display alerts but only play important warning sounds.",
+                                   "../assets/offroad/icon_mute.png",
+                                   this));
 
-  // disableOnGas
+  // disableSteeringAlert
   addItem(new ParamControl("jvePilot.settings.audioAlertOnSteeringLoss",
                                   "Audio Alert on Steering Loss",
                                   "When enabled, jvePilot will play an alert when speed it too low to steer.",
