@@ -61,6 +61,23 @@ void Sound::update() {
   setAlert(Alert::get(sm, started_frame));
 }
 
+bool shouldPlaySound(Alert a) {
+     bool isQuietDrive = Params().getBool("QuietDrive");
+//   return (a.sound == AudibleAlert::CHIME_WARNING2_REPEAT || a.sound == AudibleAlert::CHIME_WARNING_REPEAT) || (!isQuietDrive && a.sound != AudibleAlert::NONE);
+	 switch (a.sound) {
+	 	case AudibleAlert::REFUSE:
+	 		return true;
+	 	case AudibleAlert::PROMPT_DISTRACTED:
+	 		return true;
+	 	case AudibleAlert::WARNING_SOFT:
+	 		return true;
+	 	case AudibleAlert::WARNING_IMMEDIATE:
+	 		return true;
+	 	default:
+	 		return (!isQuietDrive && a.sound != AudibleAlert::NONE);
+	 }
+}
+
 void Sound::setAlert(const Alert &alert) {
   if (!current_alert.equal(alert)) {
     current_alert = alert;
@@ -72,17 +89,11 @@ void Sound::setAlert(const Alert &alert) {
       }
     }
 
-    // play sound
-  if (shouldPlaySound(a)) {
+  // play sound
+  if (shouldPlaySound(alert)) {
       auto &[s, loops] = sounds[alert.sound];
       s->setLoopCount(loops);
       s->play();
     }
   }
 }
-
-bool shouldPlaySound(Alert a) {
-     bool isQuietDrive = Params().getBool("QuietDrive");
-     return (a.sound == AudibleAlert::CHIME_WARNING2_REPEAT || a.sound == AudibleAlert::CHIME_WARNING_REPEAT) ||
-       (!isQuietDrive && a.sound != AudibleAlert::NONE);
-   }
