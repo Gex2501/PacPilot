@@ -83,5 +83,3 @@ models/*.thneed
 build/
 
 !**/.gitkeep
-
-rednose/helpers/ekf_sym_pyx.cpp
