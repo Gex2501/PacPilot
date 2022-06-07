@@ -1,5 +1,5 @@
 # Notes about this fork:
->Hello and thanks for checking out my work! I own both a 2018 Chrysler Pacifica & 2021 RAM 1500 Limited. This fork is mosly jvePilot and it is my intent to keep it up dated with changes from there. My primary focus is on adding support for the RAM 1500 but also some little tweaks that I like. This is what I have done so far or am currently working on.
+>Hello and thanks for checking out my work! I own both a 2018 Chrysler Pacifica & a 2021 RAM 1500 Limited. This fork is mosly jvePilot and it is my intent to keep it up dated with changes done to there. My primary focus is on adding support for the RAM 1500 but also some little tweaks that I like. This is what I have done so far or am currently working on.
 - **Added QuitDrive feature to silence the Engage/Disengage/Prompt noises.**
 I have found that I frequently engage and disengage while driving in the mountains as well as having the steering prompt to take over often because of the tight-ish turns. Thus I added an easy way to mute those sounds. Other more urgent alerts still play sound though. e.g. Distracted Driver, etc.
 - **Support for RAM 1500 (in progress/experimental)**
